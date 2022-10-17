@@ -1,4 +1,4 @@
-import { schema } from ".."
+import type { schema } from ".."
 import * as tcxv2 from "./tcxv2"
 import * as tcxv1 from "./tcxv1"
 import * as gpxv1_1 from "./gpxv1_1"
