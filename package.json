@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "xml2js": "^0.4.23"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.0",
+    "typescript": "^4.0.0"
+  }
+}
