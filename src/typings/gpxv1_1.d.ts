@@ -1,5 +1,6 @@
 /**
- * https://www.topografix.com/GPX/1/1/gpx.xsd
+ * Type definition for GPXv1.1 files. Schema based on {@link: https://www.topografix.com/GPX/1/1/gpx.xsd}
+ * 
  */
 type integer = number
 type decimal = number
@@ -120,7 +121,7 @@ type Metadata<ExtT = any> = {
     extensions?: ExtT[]
 }
 
-type GPX<ExtT = any> = {
+type GPX<attrK extends string, ExtT = any> = {
     metadata: Metadata
     wpt?: Waypoint[]
     rte?: Route[]
@@ -129,7 +130,11 @@ type GPX<ExtT = any> = {
     version: string
     creator: string
 }
-
+/**
+ * Main entry point for the GPX document
+ * @template attrK: the type of the tag key used by xml2js
+ * @template ExtT: Any additional extensions that are used in the document
+ */
 export type GPXv1_1Document<attrK extends string = "$", ExtT = any> = {
-    gpx: GPX<ExtT>
+    gpx: GPX<attrK, ExtT>
 }

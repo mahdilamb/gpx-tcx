@@ -1,5 +1,5 @@
 /**
- * https://www8.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd
+ * {@link https://www8.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd}
  */
 
 import * as v1 from "./tcxv1";

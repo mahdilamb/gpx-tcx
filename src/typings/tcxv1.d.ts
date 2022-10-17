@@ -1,8 +1,8 @@
-import { Intensity, TriggerMethod } from "../enums"
-
 /**
- * https://www8.garmin.com/xmlschemas/TrainingCenterDatabasev1.xsd
+ * Schema for TCXv1. Adapted from {@link https://www8.garmin.com/xmlschemas/TrainingCenterDatabasev1.xsd}
  */
+import { Intensity, Sport, TriggerMethod } from "../enums"
+
 type double = number
 type unsignedShort = number
 type unsignedByte = number
@@ -218,7 +218,6 @@ type Run<attrK extends string, ExtT = any> = {
     Training?: Training<ExtT>[]
     Extensions?: ExtT
 }
-type Sport = "Running" | "Biking" | "Other"
 
 /**
  * Each sport contains an optional transition and a run.
@@ -279,10 +278,7 @@ type TrainingCenterDatabase<attrK extends string, ExtT = any> = {
     Workouts?: Workouts<ExtT>
     Courses?: Courses
     Extensions?: ExtT
-
-
 }
-
 
 export type TCXDocumentV1<attrK extends string = "$", ExtT = any> = {
     TrainingCenterDatabase: TrainingCenterDatabase<attrK, ExtT>

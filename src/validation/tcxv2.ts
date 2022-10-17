@@ -1,9 +1,9 @@
-import { validateTriggerMethod, validateIntensity } from "./common"
+import { validateTriggerMethod, validateIntensity, validateSport } from "./common"
 import { validateFunctions, castFunctions } from "./index"
 
 export const validation: validateFunctions = {
     "/TrainingCenterDatabase/Activities/Activity/Lap/TriggerMethod": validateTriggerMethod,
-    "/TrainingCenterDatabase/Activities/Activity/Lap/Intensity": validateIntensity
+    "/TrainingCenterDatabase/Activities/Activity/Lap/Intensity": validateIntensity, "/TrainingCenterDatabase/Activities/Activity": { "Sport": validateSport }
 }
 
 export const casting: castFunctions = {

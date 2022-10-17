@@ -5,12 +5,12 @@ import type { GPXv1_1Document } from "./typings/gpxv1_1";
 import { createValidator } from "./validation";
 export type schema = "GPXv1.1" | "TCXv1" | "TCXv2"
 
-export const parse = <T extends object, ExtT = any>(text: string, schema: schema, validate: boolean = true): T => {
+const parse = <T extends object, ExtT = any>(text: string, schema: schema, validate: boolean = true): T => {
     var xml: TCXDocumentV2<"$", ExtT>;
     const options = { validator: createValidator(schema, validate) }
     parseString(text, options, (e, r) => {
         xml = r
-        if (e){
+        if (e) {
             throw e
         }
     });
