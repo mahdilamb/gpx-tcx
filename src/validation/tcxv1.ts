@@ -1,4 +1,4 @@
-import { validateFunctions, castFunctions } from "./index"
+import type { validateFunctions, castFunctions } from "."
 
 export const validation: validateFunctions = {
 

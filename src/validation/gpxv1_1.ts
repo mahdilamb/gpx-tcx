@@ -1,4 +1,4 @@
-import { validateFunctions, castFunctions } from "./index"
+import type { validateFunctions, castFunctions } from "."
 import { validateLongitude, validateLatitude } from "./common"
 export const validation: validateFunctions = {
     "/gpx/trk/trkseg/trkpt": { lon: validateLongitude, lat: validateLatitude as any },

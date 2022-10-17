@@ -1,5 +1,5 @@
 import { validateTriggerMethod, validateIntensity, validateSport } from "./common"
-import { validateFunctions, castFunctions } from "./index"
+import type { validateFunctions, castFunctions } from "."
 
 export const validation: validateFunctions = {
     "/TrainingCenterDatabase/Activities/Activity/Lap/TriggerMethod": validateTriggerMethod,
