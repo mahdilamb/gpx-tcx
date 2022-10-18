@@ -1,6 +1,5 @@
 {
   "strict": true,
-  "module": "esnext",
   "compilerOptions": {
     "resolveJsonModule": true,
     "esModuleInterop": true,
@@ -11,7 +10,7 @@
     ],
     "noImplicitAny": true,
     "strict": true,
-    "module": "ESNext",
+    "module": "commonjs",
     "target": "ESNext",
     
     "declaration": true,
