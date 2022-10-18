@@ -5,12 +5,13 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "outDir": "./lib/",
+    "moduleResolution": "node",
     "lib": [
       "ESNext"
     ],
     "noImplicitAny": true,
     "strict": true,
-    "module": "CommonJS",
+    "module": "ESNext",
     "target": "ESNext",
     
     "declaration": true,
