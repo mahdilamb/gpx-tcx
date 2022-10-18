@@ -1,5 +1,5 @@
 import { ValidationError } from "xml2js"
-import { Intensity, Sport, TriggerMethod } from "../enums"
+import { enums } from "../schemas"
 /**
  * Validate Longitude values are in range [-180,180]
  * @param value the value to check
@@ -38,14 +38,14 @@ const enumValidator = <T extends string>(Enum: { [key in T]: string | number }, 
  * Validate trigger methods
  * @see TriggerMethod
  */
-export const validateTriggerMethod = enumValidator(TriggerMethod, "trigger method")
+export const validateTriggerMethod = enumValidator(enums.TriggerMethod, "trigger method")
 /**
  * Validate intensity. 
  * @see Intensity
  */
-export const validateIntensity = enumValidator(Intensity, "intensity")
+export const validateIntensity = enumValidator(enums.Intensity, "intensity")
 /**
  * Valid Sport types
  * @see Sport
  */
-export const validateSport = enumValidator(Sport, "sport")
+export const validateSport = enumValidator(enums.Sport, "sport")

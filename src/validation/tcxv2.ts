@@ -7,8 +7,8 @@ export const validation: validateFunctions = {
 }
 
 export const casting: castFunctions = {
-    "/TrainingCenterDatabase/Activities/Activity/Id": val => new Date(val),
-    "/TrainingCenterDatabase/Activities/Activity/Lap": { "StartTime": val => new Date(val) },
+    "/TrainingCenterDatabase/Activities/Activity/Id": (val: string) => new Date(val),
+    "/TrainingCenterDatabase/Activities/Activity/Lap": { "StartTime": (val: string) => new Date(val) },
     "/TrainingCenterDatabase/Activities/Activity/Lap/TotalTimeSeconds": parseFloat,
     "/TrainingCenterDatabase/Activities/Activity/Lap/DistanceMeters": parseFloat,
     "/TrainingCenterDatabase/Activities/Activity/Lap/Calories": parseInt

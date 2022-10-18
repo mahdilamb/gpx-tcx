@@ -4,14 +4,19 @@
   "compilerOptions": {
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "outDir": "./dist/",
-    "lib": ["ESNext"],
-    "noImplicitAny": true
+    "outDir": "./lib/",
+    "lib": [
+      "ESNext"
+    ],
+    "noImplicitAny": true,
+    "strict": true,
+    "module": "CommonJS",
+    "target": "ESNext",
+    "forceConsistentCasingInFileNames": true
   },
   "include": [
     "src/**/*"
   ],
-
   "exclude": [
     "node_modules/*",
     "__sapper__/*",

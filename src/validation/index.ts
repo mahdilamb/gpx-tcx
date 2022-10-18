@@ -5,8 +5,8 @@ import * as gpxv1_1 from "./gpxv1_1"
 
 
 type parseFunction<T, R = T, S extends R | void = R> = (value: T) => S
-type castFunction = parseFunction<(string | number) | number | string, any>
-type validateFunction = parseFunction<(string | number) | number | string, any, void>
+type castFunction = parseFunction<(string | number), any> | parseFunction<number, any> | parseFunction<string, any>
+type validateFunction = parseFunction<(string | number), any, void> | parseFunction<string, any, void> | parseFunction<number, any, void>
 export type castFunctions = { [path: string]: castFunction | { [tag: string]: castFunction } }
 export type validateFunctions = { [path: string]: validateFunction | { [tag: string]: validateFunction } }
 
@@ -23,10 +23,12 @@ export const createValidator = (schema: schema, validate: boolean = true) => {
         let cast: castFunction | { [tag: string]: castFunction };
         if (cast = (castFunctions[xpath])) {
             if (typeof cast === "function") {
+                // @ts-ignore
                 newValue = cast(newValue)
             }
             else {
                 Object.entries<castFunction>(cast).forEach(([tag, castFunction]) => {
+                    // @ts-ignore
                     newValue['$'][tag] = castFunction(newValue['$'][tag])
                 });
             }
@@ -38,10 +40,12 @@ export const createValidator = (schema: schema, validate: boolean = true) => {
             let validation: validateFunction | { [tag: string]: validateFunction };
             if (validation = validateFunctions[xpath]) {
                 if (typeof validation === "function") {
+                    // @ts-ignore
                     validation(newValue)
                 }
                 else {
                     Object.entries<validateFunction>(validation).forEach(([tag, validateFunction]) => {
+                        // @ts-ignore
                         validateFunction(newValue['$'][tag])
                     });
                 }

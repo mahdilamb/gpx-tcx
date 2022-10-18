@@ -1,7 +1,7 @@
 /**
  * Schema for TCXv1. Adapted from {@link https://www8.garmin.com/xmlschemas/TrainingCenterDatabasev1.xsd}
  */
-import { Intensity, Sport, TriggerMethod } from "../enums"
+import { Intensity, Sport, TriggerMethod } from "./enums"
 
 type double = number
 type unsignedShort = number
