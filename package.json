@@ -2,8 +2,8 @@
   "name": "gpx-tcx",
   "version": "0.0.1",
   "description": "Simple parsers for strings in TCX/GPX format",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
   "directories": {
     "test": "./__tests__"
   },
