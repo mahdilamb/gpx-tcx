@@ -1,4 +1,3 @@
-import type * as schemas from "./schemas"
+import type * as schemas from './schemas';
 
-
-export default schemas
+export default schemas;

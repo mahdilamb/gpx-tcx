@@ -1,9 +1,5 @@
-import type { validateFunctions, castFunctions } from "."
+import type { validateFunctions, castFunctions } from '.';
 
-export const validation: validateFunctions = {
+export const validation: validateFunctions = {};
 
-}
-
-export const casting: castFunctions = {
-
-}
+export const casting: castFunctions = {};
