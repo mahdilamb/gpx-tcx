@@ -12,8 +12,9 @@
     "strict": true,
     "module": "CommonJS",
     "target": "ESNext",
-    "forceConsistentCasingInFileNames": true,
-    "declaration": true
+    
+    "declaration": true,
+    
   },
   "include": [
     "src/**/*"

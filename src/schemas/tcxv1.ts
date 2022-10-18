@@ -4,15 +4,15 @@
 import { Intensity, Sport, TriggerMethod } from './enums';
 
 type double = number;
-type unsignedShort = number;
-type unsignedByte = number;
+export type unsignedShort = number;
+export type unsignedByte = number;
 type positiveInteger = number;
-type DateTime = Date;
+export type DateTime = Date;
 type DegreesLongitude = double; //[-180,180]
 type DegreesLatitude = double; //[-90,90]
 type SensorState = 'Present' | 'Absent';
 
-type RestrictedToken = string; //Token that is between 1 and 15 characters
+export type RestrictedToken = string; //Token that is between 1 and 15 characters
 type StepId = positiveInteger; // [0,20]
 type Repetitions = positiveInteger; //[2,99]
 type SpeedZoneNumbers = positiveInteger; //[0,10]
@@ -21,7 +21,7 @@ type SpeedType = 'Pace' | 'Speed';
 type HeartRateZoneNumbers = positiveInteger; //[5,]
 type PercentOfMax = unsignedByte; //[0,100]
 type CoursePointName = string; //Token [1,10]
-type CoursePointType =
+export type CoursePointType =
   | 'Generic'
   | 'Summit'
   | 'Valley'
@@ -49,7 +49,7 @@ type CoursePoint<ExtT = any> = {
   Notes?: string;
   Extensions?: ExtT;
 };
-type CourseLap<ExtT = any> = {
+export type CourseLap<ExtT = any> = {
   TotalTimeSeconds: double;
   DistanceMeters: double;
   BeginPosition?: Position;
@@ -63,7 +63,7 @@ type CourseLap<ExtT = any> = {
   Extensions?: ExtT;
 };
 
-type Course<ExtT = any> = {
+export type Course<ExtT = any> = {
   Name: RestrictedToken[];
   Lap?: CourseLap<ExtT>[];
   Track?: Track[];
@@ -72,14 +72,14 @@ type Course<ExtT = any> = {
   Extensions?: ExtT;
 };
 
-type CourseFolder<ExtT = any> = {
+export type CourseFolder<ExtT = any> = {
   Name: string;
   Folder?: CourseFolder<ExtT>[];
   Course?: Course<ExtT>[];
   Notes?: string;
   Extensions: ExtT;
 };
-type Courses<ExtT = any> = {
+export type Courses<ExtT = any> = {
   CourseFolder: CourseFolder<ExtT>[];
   Extensions?: ExtT;
 };
@@ -87,17 +87,17 @@ type CustomHeartRateZone = Zone & {
   Low: HeartRateValue[];
   High: HeartRateValue[];
 };
-type HeartRateInBeatsPerMinute = HeartRateValue & {
+export type HeartRateInBeatsPerMinute = HeartRateValue & {
   Value: unsignedByte[];
 };
-type HeartAteAsPercentOfMax = HeartRateValue & {
+type HeartRateAsPercentOfMax = HeartRateValue & {
   Value: PercentOfMax[];
 };
 
 type AbstractStep = {
   StepId: StepId;
 }[];
-type Duration = {};
+export type Duration = {};
 type CustomSpeedZone = Zone & {
   ViewAs: SpeedType[];
   LowInMetersPerSecond: SpeedInMetersPerSecond[];
@@ -144,20 +144,20 @@ type Step = AbstractStep & {
   Intensity: Intensity;
   Target: Target;
 };
-type Workout<ExtT = any> = {
+export type Workout<ExtT = any> = {
   Name: RestrictedToken;
   Step: AbstractStep[];
   ScheduledOn?: Date[];
   Notes?: string;
   Extensions?: ExtT;
 };
-type WorkoutFolder<ExtT = any> = {
+export type WorkoutFolder<ExtT = any> = {
   Name: string;
   Folder?: WorkoutFolder<ExtT>[];
   Workout?: Workout<ExtT>[];
   Extensions?: ExtT;
 }[];
-type Workouts<ExtT = any> = {
+export type Workouts<ExtT = any> = {
   Running?: WorkoutFolder<ExtT>[];
   Biking?: WorkoutFolder<ExtT>[];
   Other?: WorkoutFolder<ExtT>[];
@@ -169,7 +169,7 @@ type Position = {
   LongitudeDegrees: DegreesLongitude;
 }[];
 
-type Trackpoint<ExtT = any> = {
+export type Trackpoint<ExtT = any> = {
   Time: DateTime;
   Position?: Position;
   AltitudeMeters?: double;
@@ -183,7 +183,7 @@ type Track<ExtT = any> = {
   Trackpoint: Trackpoint<ExtT>;
 };
 
-type ActivityLap<attrK extends string, ExtT = any> = {
+export type ActivityLap<attrK extends string, ExtT = any> = {
   TotalTimeSeconds: double;
   DistanceMeters: double;
   MaximumSpeed?: unsignedShort;
@@ -210,7 +210,7 @@ type QuickWorkout = {
   TotalTimeSeconds: double;
   DistanceMeters: double;
 };
-type Training<ExtT = any> = {
+export type Training<ExtT = any> = {
   QuickWorkoutResults?: QuickWorkout;
   Plan: Plan<ExtT>;
   VirtualPartner: boolean;
@@ -225,7 +225,7 @@ type Run<attrK extends string, ExtT = any> = {
 /**
  * Each sport contains an optional transition and a run.
  */
-type NextSport<attrK extends string, ExtT = any> = {
+export type NextSport<attrK extends string, ExtT = any> = {
   Transition?: ActivityLap<attrK, ExtT>;
   Run?: Run<attrK, ExtT>;
   Sport: Sport;
@@ -243,7 +243,7 @@ type MultiSessionSport<attrK extends string, ExtT = any> = {
 /**
  * The week is written out only if the notes are present.
  */
-type Week = {
+export type Week = {
   StartDate: Date[];
   Notes?: string;
 };

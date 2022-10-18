@@ -1,7 +1,5 @@
 import { parseString } from 'xml2js';
-import type { TCXv1Document } from './schemas/tcxv1';
-import type { TCXv2Document } from './schemas/tcxv2';
-import type { GPXv1_1Document } from './schemas/gpxv1_1';
+import type { TCXv1Document, TCXv2Document, GPXv1_1Document } from './schemas';
 import { createValidator } from './validation';
 export type schema = 'GPXv1.1' | 'TCXv1' | 'TCXv2';
 
